@@ -1,13 +1,6 @@
 import React from "react";
 
 const Users = ({ users }) => {
-  const a = {
-    name: {
-      sharad: 2,
-      shivansh: 3,
-    },
-    caste: "agarwal",
-  };
   return (
     <div className="p-4  rounded-lg grid grid-cols-7 m-4 gap-10">
       {users.map((e) => {
