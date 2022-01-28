@@ -14,7 +14,7 @@ const Users = ({ users }) => {
         return (
           <div
             key={Object.keys(e)[0]}
-            className=" p-8 bg-gradient-to-r text-white from-indigo-700 to-indigo-500 shadow-lg hover:scale-105 shadow-indigo-900 rounded-xl cursor-pointer text-lg"
+            className=" p-8 bg-gradient-to-r text-white from-indigo-900 to-indigo-500 shadow-lg hover:scale-105 transition shadow-indigo-900 rounded-xl cursor-pointer text-lg"
           >
             <h1 className="flex justify-center text-xl p-2 font-bold uppercase">
               {Object.values(e)[0].name}
