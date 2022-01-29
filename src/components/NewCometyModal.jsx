@@ -1,24 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../actions/index";
 
-const NewCometyModal = ({
-  newCometyModal,
-  setNewCometyModal,
-  users,
-  setUsers,
-}) => {
+const NewCometyModal = ({ newCometyModal, setNewCometyModal }) => {
+  const dispatch = useDispatch();
   if (!newCometyModal) return null;
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-    const randomId = Math.random().toString(36).substring(2, 10);
-    const user = {};
-    user.name = e.target[0].value;
-    user.amount = e.target[1].value;
-    users = [...users, { [randomId]: user }];
-    setUsers(users);
-    setNewCometyModal(false);
-  };
 
   return ReactDOM.createPortal(
     <>
@@ -28,7 +15,9 @@ const NewCometyModal = ({
       ></div>
       <form
         className="fixed p-10 bg-white top-1/4 left-1/4 flex flex-col shadow-md shadow-gray-200 rounded-lg gap-4"
-        onSubmit={(e) => submitHandler(e)}
+        onSubmit={(e) => {
+          dispatch(addUser({ cometyModel: setNewCometyModal, payload: e }));
+        }}
       >
         <input
           className="p-3 rounded-lg border-2 border-indigo-400 focus:border-2 focus:border-indigo-500 "
