@@ -7,13 +7,17 @@ export const performUser = (users = initialState, action) => {
       const randomId = Math.random().toString(36).substring(2, 10);
       const name = action.payload.payload.target[0].value;
       const amount = action.payload.payload.target[1].value;
-      users = [...users, { id: randomId, name: name, amount: amount }];
+      const paidOn = action.payload.payload.target[1].value;
+      users = [...users, { randomId, name, amount, paidOn }];
       action.payload.cometyModel(false);
       return users;
     }
     case "DELETEUSER": {
-      users = users.filter((user) => user.id != action.payload);
+      users = users.filter((user) => user.id !== action.payload);
       return users;
+    }
+    case "PAID":{
+      users = [...users, ]
     }
     default:
       return users;

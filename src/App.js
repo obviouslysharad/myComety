@@ -12,16 +12,20 @@ function App() {
   const [newCometyModal, setNewCometyModal] = React.useState(false);
   return (
     <div className="App">
-      <Header
-        newCometyModal={newCometyModal}
-        setNewCometyModal={setNewCometyModal}
-      />
+      <BrowserRouter>
+        <Header
+          newCometyModal={newCometyModal}
+          setNewCometyModal={setNewCometyModal}
+        />
+        <Routes>
+          <Route path="/" element={<Users />} />
+        </Routes>
+      </BrowserRouter>
       <NewCometyModal
         newCometyModal={newCometyModal}
         setNewCometyModal={setNewCometyModal}
       />
-      <Users />
-      {users.length == 0 && (
+      {users.length === 0 && (
         <div className="flex flex-col justify-center items-center">
           <img src="https://svgshare.com/i/dmo.svg"></img>
           <div className="p-6 text-2xl">Please add user</div>

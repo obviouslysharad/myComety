@@ -17,3 +17,10 @@ export const addMember = (details) => {
     payload: details,
   };
 };
+
+export const paidOn = (paidOn) => {
+  return {
+    type: "PAID",
+    payload: paidOn,
+  };
+};
