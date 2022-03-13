@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-
+import FindName from "./FindName";
 const Calendar = () => {
   const members = useSelector((state) => state.performMember);
   const [interest, setInterest] = React.useState("");
@@ -31,20 +31,9 @@ const Calendar = () => {
     </div>
   ));
   return (
-    <div className="flex">
-      <div className="flex flex-col gap-3 font-bold uppercase pt-2 w-20 rounded-r-md">
-        {renderCalendar}
-      </div>
-      <input
-        className="p-2 rounded-lg h-10"
-        placeholder="Enter the interest"
-        type="number"
-        ref={interestRef}
-        onChange={() => {
-          setInterest(interestRef.current.value);
-        }}
-      ></input>
-      <div>
+    <div className="grid grid-cols-12 justify-center items-center">
+      <div className="col-span-1">{renderCalendar}</div>
+      <div className="col-span-8">
         <table className="m-40">
           <tr className="bg-slate-600 text-white">
             <th className="p-2">Id</th>
@@ -66,10 +55,15 @@ const Calendar = () => {
               <td className="p-2 text-center">
                 <div className="p-1 text-white rounded-full bg-red-400">No</div>
               </td>
-              <td className="p-2">Unpaid</td>
+              <td className="p-2">
+                <input type="date" placeholder="Paid On" />
+              </td>
             </tr>
           ))}
         </table>
+      </div>
+      <div className="col-span-3">
+        <FindName members={members} />
       </div>
     </div>
   );
