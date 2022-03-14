@@ -32,7 +32,7 @@ const FindName = ({ members }) => {
       {finalSelectedMember ? (
         <div>Selected Member: {finalSelectedMember}</div>
       ) : (
-        <div className="grid m-10">
+        <div className="grid m-10 bg-slate-200 border-2 rounded-3xl p-4 shadow-md shadow-slate-400 h-72">
           <div className="flex gap-4 p-2 bg-gray-300 rounded-full justify-center">
             <button
               className={
@@ -55,9 +55,9 @@ const FindName = ({ members }) => {
               Manual
             </button>
           </div>
-          <div className="flex gap-4 p-2 justify-center">
+          <div className="flex gap-4 p-2 justify-center h-36 items-center">
             {isRandom ? (
-              <div>
+              <div className="grid gap-4">
                 <button
                   onClick={pickRandom}
                   className="p-3 rounded-full bg-slate-300"
@@ -67,9 +67,11 @@ const FindName = ({ members }) => {
                 {selectedMember && <h1>Random User is: {selectedMember}</h1>}
               </div>
             ) : (
-              <div>
-                <label name="RandomPerson">Pick Random Winner</label>
-                <select name="RandomPerson">
+              <div className="grid gap-4">
+                <label className="font-bold text-lg" name="RandomPerson">
+                  Pick Random Winner
+                </label>
+                <select className="p-2 border-none" name="RandomPerson">
                   {members.map((member) => (
                     <option value={member.name}>{member.name}</option>
                   ))}
