@@ -3,13 +3,13 @@ import { NavLink } from "react-router-dom";
 
 const Header = ({ newCometyModal, setNewCometyModal }) => {
   return (
-    <div className="flex p-3 shadow-indigo-200 shadow-md justify-between">
+    <div className="flex p-3 shadow-lg justify-between items-center h-28 border-b-2 shadow-indigo-300">
       <NavLink to="/">
-        <div className="text-2xl font-bold text-indigo-900 ">COMETY</div>
+        <div className="text-5xl font-bold text-indigo-900 p-2">COMETY</div>
       </NavLink>
       <button
         onClick={() => setNewCometyModal(!newCometyModal)}
-        className="p-2 shadow-md shadow-indigo-500 rounded-lg bg-gradient-to-r from-indigo-800 to-indigo-500 text-white hover:scale-105 transition"
+        className="btn-primary"
       >
         New Comety
       </button>

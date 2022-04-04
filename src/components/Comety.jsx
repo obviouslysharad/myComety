@@ -7,9 +7,10 @@ const Comety = ({ setSelectedId, selectedName, selectedAmount }) => {
   const dispatch = useDispatch();
   const members = useSelector((state) => state.performMember);
   const [proceed, setProceed] = React.useState(false);
-  const membersRender = members.map((member) => (
-    <span className="px-4 w-48 m-1 border-2 border-black p-1 shadow-gray-400 text-black rounded-full">
-      {member.name}
+  const membersRender = members.map((member, index) => (
+    <span className=" uppercase w-48 m-1 p-1 border-2 border-gray-400 text-black rounded-lg">
+      <span className="m-2">{index + 1}.)</span>
+      <span>{member.name}</span>
     </span>
   ));
   return (
@@ -25,7 +26,14 @@ const Comety = ({ setSelectedId, selectedName, selectedAmount }) => {
             Back
           </button>
           <div className="mt-10 text-2xl">
-            Welcome to {selectedName} of {selectedAmount}
+            Welcome to
+            <span className="uppercase font-bold text-blue-900 m-2">
+              {selectedName}
+            </span>
+            of
+            <span className="uppercase font-bold text-green-900 m-2">
+              ₹{selectedAmount}
+            </span>
           </div>
           <form
             onSubmit={(e) => {
@@ -36,13 +44,13 @@ const Comety = ({ setSelectedId, selectedName, selectedAmount }) => {
           >
             <input
               type="text"
-              className="border-none rounded-lg p-1 m-1"
+              className="border-none rounded-lg p-2 m-2"
               placeholder="Enter Name"
               name="name"
             />
             <input
               type="number"
-              className="rounded-lg p-1 m-1"
+              className="rounded-lg p-2 m-2"
               placeholder="Contact Number"
               name="contact"
             />
@@ -56,7 +64,7 @@ const Comety = ({ setSelectedId, selectedName, selectedAmount }) => {
           {membersRender}
           {members.length > 0 && (
             <button
-              className="rounded-full border-indigo-900 uppercase p-1 shadow-md shadow-indigo-300 hover:shadow-indigo-400 w-32"
+              className="rounded-full uppercase p-1 shadow-md shadow-gray-400 hover:scale-105 mt-2 w-32 font-bold"
               onClick={() => setProceed(true)}
             >
               Proceed

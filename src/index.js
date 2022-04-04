@@ -9,7 +9,7 @@ store.subscribe(() => console.log("subscription", store.getState()));
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <App className="h-screen" />
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

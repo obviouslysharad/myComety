@@ -7,7 +7,7 @@ export const AddMember = ({ setToggleAddMember, toggleAddMember }) => {
   return (
     <>
       <div
-        className="fixed black opacity-50 top-0 bottom-0 right-0 left-0 bg-black"
+        className="fixed black transparent-50 top-0 bottom-0 right-0 left-0 bg-black"
         onClick={() => setToggleAddMember(!toggleAddMember)}
       ></div>
       <div className="bg-white fixed top-20 right-1/2 left-1/2 border-2 border-indigo-200 w-96 rounded-xl shadow-md shadow-indigo-400">
